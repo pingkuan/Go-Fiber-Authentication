@@ -19,9 +19,7 @@ func GenerateToken(uid uint32) (string, error) {
 	claims["user_id"]=uid
 	claims["exp"] = time.Now().Add(time.Hour * 24).Unix()
 
-	 t, err := token.SignedString([]byte(secret))
-	 if err!=nil{
-		return "",err
-	 }
+	t, err := token.SignedString([]byte(secret))
+
 	return t, err
 }

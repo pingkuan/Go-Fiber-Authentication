@@ -41,5 +41,4 @@ func ConnectDb(){
 	log.Println("Database migrated")
 
 	Db=db
-
 }

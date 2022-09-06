@@ -25,7 +25,6 @@ func VerifyPassword(hash, password string) bool {
 }
 
 func Register(c *fiber.Ctx) error {
-
 	type NewUser struct {
 		Username string `json:"username"`
 		Email    string `json:"email"`
@@ -93,7 +92,7 @@ func AuthUser(c *fiber.Ctx)error{
 	}
 	
 	t,err :=utils.GenerateToken(user.ID)
-    if err != nil {
+	if err != nil {
 		return c.Status(500).JSON(fiber.Map{"status":"error","message":"Couldn't generate token","data":err})
 	}
 	
@@ -107,7 +106,6 @@ func AuthUser(c *fiber.Ctx)error{
 }
 
 func GetUser(c *fiber.Ctx)error{
-
 	id:=c.Locals("ID")
 	db:= database.Db
 	var user models.User
@@ -157,7 +155,7 @@ func DeleteUser(c *fiber.Ctx)error{
 	type PasswordInput struct{
 		Password string `json:"password"`
 	}
-	
+
 	var pi PasswordInput
 	if err:=c.BodyParser(&pi); err != nil {
 		return c.Status(500).JSON(fiber.Map{"status":"error","message":"Invalid input","data":err})
