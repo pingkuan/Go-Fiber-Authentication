@@ -1,4 +1,4 @@
 # Golang jwt authentication api
 
-Using Fiber framework and Mysql-gorm to build User CRUD operation
+Use Go Fiber framework and Mysql-gorm to build User CRUD operation
 
