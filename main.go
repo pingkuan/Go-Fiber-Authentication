@@ -9,16 +9,14 @@ import (
 	"github.com/pingkuan/go-fiber-api/routes"
 )
 
-
-
 func main() {
-	
+
 	database.ConnectDb()
-	
-	app:=fiber.New()
+
+	app := fiber.New()
 
 	app.Use(cors.New())
-	
+
 	routes.SetupRoutes(app)
 
 	log.Fatal(app.Listen(":8080"))

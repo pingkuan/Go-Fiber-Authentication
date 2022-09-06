@@ -8,7 +8,6 @@ import (
 	_ "github.com/joho/godotenv/autoload"
 )
 
-
 var secret string = os.Getenv("JWT_SECRET")
 
 func GenerateToken(uid uint32) (string, error) {
@@ -16,7 +15,7 @@ func GenerateToken(uid uint32) (string, error) {
 
 	claims := token.Claims.(jwt.MapClaims)
 
-	claims["user_id"]=uid
+	claims["user_id"] = uid
 	claims["exp"] = time.Now().Add(time.Hour * 24).Unix()
 
 	t, err := token.SignedString([]byte(secret))

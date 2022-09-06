@@ -12,6 +12,3 @@ type User struct {
 	CreatedAt time.Time `gorm:"default:current_timestamp(3)" json:"created_at"`
 	UpdatedAt time.Time `gorm:"default:current_timestamp(3)" json:"updated_at"`
 }
-
-
-
